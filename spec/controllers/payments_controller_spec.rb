@@ -7,4 +7,13 @@ RSpec.describe PaymentsController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  describe '#show' do
+    let(:payment) { Payment.create!(amount: 10.0) }
+
+    it 'responds with a 200' do
+      get :show, id: payment.id
+      expect(response).to have_http_status(:ok)
+    end
+  end
 end
