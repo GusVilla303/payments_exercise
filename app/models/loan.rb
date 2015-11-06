@@ -4,7 +4,15 @@ class Loan < ActiveRecord::Base
   validates :balance, presence: true
 
   def all_payments
-    self.payments.map { |payment| payment.amount }.reduce(:+)
+    if self.payments.empty?
+      0
+    else
+      self.payments.map { |payment| payment.amount }.reduce(:+)
+    end
+  end
+
+  def balance
+   self.balance = self.outstanding_balance
   end
 
   def loan_amount
@@ -15,7 +23,7 @@ class Loan < ActiveRecord::Base
     loan_amount - all_payments
   end
 
-  # def balance
-  #   self.balance = self.outstanding_balance
-  # end
+  def payment_history
+    self.payments
+  end
 end
