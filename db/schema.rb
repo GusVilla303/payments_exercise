@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151106150351) do
+ActiveRecord::Schema.define(version: 20151106155332) do
 
   create_table "loans", force: :cascade do |t|
     t.decimal  "funded_amount", precision: 8, scale: 2
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20151106150351) do
   end
 
   create_table "payments", force: :cascade do |t|
-    t.string   "date"
+    t.datetime "date"
     t.decimal  "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
