@@ -18,6 +18,6 @@ class Api::V1::PaymentsController < ApplicationController
   private
 
   def payment_params
-    params.require(:payment).permit(:date, :amount)
+    params.require(:payment).permit(:date, :amount, :loan_id)
   end
 end

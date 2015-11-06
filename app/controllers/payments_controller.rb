@@ -4,10 +4,10 @@ class PaymentsController < ApplicationController
   end
 
   def index
-    @payments = Payment.all
+    render json: Payment.all
   end
 
   def show
-    @payment = Payment.find(params[:id])
+    render json: Payment.find(params[:id])
   end
 end

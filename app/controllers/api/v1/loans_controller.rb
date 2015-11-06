@@ -4,10 +4,15 @@ class Api::V1::LoansController < ApplicationController
   end
 
   def index
-    render json: Loan.all
+    loans = Loan.all
+    loans.each { |loan| loan.balance = loan.outstanding_balance }
+    render json: loans
   end
 
   def show
-    render json: Loan.find(params[:id])
+    loan         = Loan.find(params[:id])
+    payments     = loan.payments
+    loan.balance = loan.outstanding_balance
+    render json: loan
   end
 end
