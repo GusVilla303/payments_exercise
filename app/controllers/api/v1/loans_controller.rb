@@ -10,9 +10,9 @@ class Api::V1::LoansController < ApplicationController
   end
 
   def show
-    loan         = Loan.find(params[:id])
-    loan.payments     = loan.payment_history
-    loan.balance = loan.outstanding_balance
+    loan          = Loan.find(params[:id])
+    loan.payments = loan.payment_history
+    loan.balance  = loan.outstanding_balance
     render json: loan
   end
 end
