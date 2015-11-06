@@ -9,7 +9,7 @@ RSpec.describe PaymentsController, type: :controller do
   end
 
   describe '#show' do
-    let(:payment) { Payment.create!(amount: 10.0) }
+    let(:payment) { Payment.create!(amount: 10.0, loan_id: 1) }
 
     it 'responds with a 200' do
       get :show, id: payment.id
