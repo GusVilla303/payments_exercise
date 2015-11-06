@@ -16,4 +16,11 @@ RSpec.describe PaymentsController, type: :controller do
       expect(response).to have_http_status(:ok)
     end
   end
+
+  context 'if the payment is not found' do
+    xit 'responds with a 404' do
+      get :show, id: 10000
+      expect(response).to have_http_status(:not_found)
+    end
+  end
 end
